@@ -5,7 +5,7 @@ public class TaskBindingModel {
 	private String status;
 
 	public String getTitle() {
-		return this.title;
+		return title;
 	}
 
 	public void setTitle(String title) {
@@ -13,7 +13,7 @@ public class TaskBindingModel {
 	}
 
 	public String getStatus() {
-		return this.status;
+		return status;
 	}
 
 	public void setStatus(String status) {
