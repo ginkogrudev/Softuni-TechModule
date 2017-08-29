@@ -1,12 +1,16 @@
 package imdb.bindingModel;
 
-import imdb.entity.Film;
-
 public class FilmBindingModel {
-	private String name;
-	private String genere;
-	private String director;
-	private String year;
+    private String name;
+
+    private String genre;
+
+    private String director;
+
+    private Integer year;
+
+    public FilmBindingModel() {
+    }
 
     public String getName() {
         return name;
@@ -16,12 +20,12 @@ public class FilmBindingModel {
         this.name = name;
     }
 
-    public String getGenere() {
-        return genere;
+    public String getGenre() {
+        return genre;
     }
 
-    public void setGenere(String genere) {
-        this.genere = genere;
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 
     public String getDirector() {
@@ -32,11 +36,11 @@ public class FilmBindingModel {
         this.director = director;
     }
 
-    public String getYear() {
+    public Integer getYear() {
         return year;
     }
 
-    public void setYear(String year) {
+    public void setYear(Integer year) {
         this.year = year;
     }
 }

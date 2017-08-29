@@ -49,6 +49,10 @@ ColPositions_MainForm.ListTables<|||>1<|||>0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15
 ColSort_MainForm.ListTables<|||>1<|||>0,0
 SessionManager_WindowWidth<|||>3<|||>870
 SessionManager_WindowHeight<|||>3<|||>523
+ColWidths_UserManagerForm.listUsers<|||>1<|||>96,80
+ColsVisible_UserManagerForm.listUsers<|||>1<|||>0,1
+ColPositions_UserManagerForm.listUsers<|||>1<|||>0,1
+ColSort_UserManagerForm.listUsers<|||>1<|||>0,0
 Servers\Database Connection\SessionCreated<|||>1<|||>2016-10-31 14:03:39
 Servers\Database Connection\Host<|||>1<|||>127.0.0.1
 Servers\Database Connection\WindowsAuth<|||>3<|||>0
@@ -78,8 +82,8 @@ Servers\Database Connection\SSL_Cert<|||>1<|||>
 Servers\Database Connection\SSL_CA<|||>1<|||>
 Servers\Database Connection\SSL_Cipher<|||>1<|||>
 Servers\Database Connection\ServerVersionFull<|||>1<|||>10.1.13-MariaDB - mariadb.org binary distribution
-Servers\Database Connection\ConnectCount<|||>3<|||>12
+Servers\Database Connection\ConnectCount<|||>3<|||>14
 Servers\Database Connection\ServerVersion<|||>3<|||>100113
-Servers\Database Connection\LastConnect<|||>1<|||>2017-08-28 20:07:20
+Servers\Database Connection\LastConnect<|||>1<|||>2017-08-29 17:49:29
 Servers\Database Connection\lastUsedDB<|||>1<|||>imdb
-Servers\Database Connection\RefusedCount<|||>3<|||>1
+Servers\Database Connection\RefusedCount<|||>3<|||>3
