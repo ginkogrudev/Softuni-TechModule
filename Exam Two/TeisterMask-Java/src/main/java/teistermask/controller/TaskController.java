@@ -23,69 +23,81 @@ public class TaskController {
 
 	@GetMapping("/")
 	public String index(Model model) {
-		// TODO: Implement me...
-		List<Task> tasks = taskRepository.findAll();
-		model.addAttribute("tasks", tasks);
+		List<Task> openTasks = taskRepository.findAllByStatus("Open");
+		List<Task> inProgressTasks = taskRepository.findAllByStatus("In Progress");
+		List<Task> finishedTasks = taskRepository.findAllByStatus("Finished");
+
+		model.addAttribute("openTasks", openTasks);
+		model.addAttribute("finishedTasks", finishedTasks);
+		model.addAttribute("inProgressTasks", inProgressTasks);
+
 		model.addAttribute("view", "task/index");
 		return "base-layout";
 	}
 
 	@GetMapping("/create")
 	public String create(Model model) {
-		// TODO: Implement me...
-		model.addAttribute("task", new TaskBindingModel());
+
 		model.addAttribute("view", "task/create");
 		return "base-layout";
 	}
 
 	@PostMapping("/create")
 	public String createProcess(Model model, TaskBindingModel taskBindingModel) {
-		// TODO: Implement me...
-		if (taskBindingModel.getTitle().equals("") ||
-				taskBindingModel.getStatus().equals("")) {
-			model.addAttribute("task", taskBindingModel);
-			model.addAttribute("view", "task/create");
-			return "base-layout";
+
+		// redirects to main page if the viewmodel is null
+		if (taskBindingModel == null){
+			return "redirect:/";
 		}
 
-		Task task = new Task();
-		task.setTitle(taskBindingModel.getTitle());
-		task.setStatus(taskBindingModel.getStatus());
+		// redirects to main page if the title or the comments are not entered and submitted
+		if (taskBindingModel.getTitle().equals("") || taskBindingModel.getStatus().equals("")){
+			return "redirect:/";
+		}
+
+		//creates a new task with the info from the taskbindingmodel and saves it to the database
+		Task task = new Task(taskBindingModel.getStatus(), taskBindingModel.getTitle());
 		taskRepository.saveAndFlush(task);
+
+		//redirects to main page
 		return "redirect:/";
 	}
 
 	@GetMapping("/edit/{id}")
 	public String edit(Model model, @PathVariable int id) {
-		// TODO: Implement me...
 		Task task = taskRepository.findOne(id);
-		if (task != null) {
+		if (task != null){
 			model.addAttribute("task", task);
 			model.addAttribute("view", "task/edit");
 			return "base-layout";
 		}
+
 		return "redirect:/";
 	}
 
 	@PostMapping("/edit/{id}")
-	public String editTask(
-			Model model, @PathVariable int id, TaskBindingModel taskBindingModel) {
+	public String editProcess(@PathVariable int id, TaskBindingModel taskBindingModel, Model model) {
 
-		if (taskBindingModel.getTitle().equals("") ||
-				taskBindingModel.getStatus().equals("")) {
-			Task task = new Task();
-			task.setId(id);
-			task.setTitle(taskBindingModel.getTitle());
-			task.setStatus(taskBindingModel.getStatus());
-			model.addAttribute("task", task);
+		//this serves not to delete the entered info, if one of the fields is empty (pointless here)
+		if (taskBindingModel.getTitle().equals("") || taskBindingModel.getStatus().equals("")){
+
+			Task newTaskForForm = new Task();
+			newTaskForForm.setTitle(taskBindingModel.getTitle());
+			newTaskForForm.setStatus(taskBindingModel.getStatus());
+			newTaskForForm.setId(id);
+
+			model.addAttribute("task", newTaskForForm);
 			model.addAttribute("view", "task/edit");
+
 			return "base-layout";
 		}
 
 		Task task = taskRepository.findOne(id);
+
 		if (task != null) {
-			task.setTitle(taskBindingModel.getTitle());
+			task.setId(id);
 			task.setStatus(taskBindingModel.getStatus());
+			task.setTitle(taskBindingModel.getTitle());
 			taskRepository.saveAndFlush(task);
 		}
 

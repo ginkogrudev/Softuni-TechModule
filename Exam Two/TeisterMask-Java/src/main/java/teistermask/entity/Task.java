@@ -16,6 +16,14 @@ public class Task {
     @Column(nullable = false)
     private String status;
 
+    public Task() {
+    }
+
+    public Task(String title, String status) {
+        this.title = title;
+        this.status = status;
+    }
+
     public int getId() {
         return id;
     }
@@ -37,6 +45,12 @@ public class Task {
     }
 
     public void setStatus(String status) {
-        this.status = status;
+        if (status.equals("Open") || status.equals("In Progress") || status.equals("Finished")) {
+            this.status = status;
+        }
+        // this is not obligatory for the exam
+        else{
+            throw new IllegalArgumentException("Invalid status: " + status);
+        }
     }
 }

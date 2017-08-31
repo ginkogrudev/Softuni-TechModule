@@ -82,8 +82,8 @@ Servers\Database Connection\SSL_Cert<|||>1<|||>
 Servers\Database Connection\SSL_CA<|||>1<|||>
 Servers\Database Connection\SSL_Cipher<|||>1<|||>
 Servers\Database Connection\ServerVersionFull<|||>1<|||>10.1.13-MariaDB - mariadb.org binary distribution
-Servers\Database Connection\ConnectCount<|||>3<|||>14
+Servers\Database Connection\ConnectCount<|||>3<|||>15
 Servers\Database Connection\ServerVersion<|||>3<|||>100113
-Servers\Database Connection\LastConnect<|||>1<|||>2017-08-29 17:49:29
-Servers\Database Connection\lastUsedDB<|||>1<|||>imdb
+Servers\Database Connection\LastConnect<|||>1<|||>2017-08-31 13:21:44
+Servers\Database Connection\lastUsedDB<|||>1<|||>
 Servers\Database Connection\RefusedCount<|||>3<|||>3
